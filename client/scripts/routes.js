@@ -10,11 +10,11 @@ var Router = Backbone.Router.extend({
 
   level: function (num) {
     Session.set('pageIs', 'level');
-    Session.set('levelIs', num)
+    Session.set('levelIs', num);
   }
 });
 
-window.App = new Router;
+window.App = new Router();
 
 Meteor.startup(function () {
   Backbone.history.start({ pushState: true });

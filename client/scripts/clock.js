@@ -19,7 +19,6 @@ window.clock = {
     var s = clock.get();
     var stred = Math.floor(s / 60) + ':' + Math.floor(s % 60).toFixed(0).pad(2, '0');
     Session.set('time', stred);
-    $('#clock').text(stred);
   },
 
   get: function () {
@@ -39,3 +38,9 @@ String.prototype.pad = function (l, s){
       ? (s = new Array(Math.ceil(l / s.length) + 1).join(s)).substr(0, s.length) + this + s.substr(0, l - s.length)
       : this;
 };
+
+Template.clock.helpers({
+  clock: function () {
+    return Session.get('time');
+  }
+});
