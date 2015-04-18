@@ -13,13 +13,15 @@
 @mobile_big: "only screen and (max-width: 1024px)";
 
 .general{
-  color: @Gris;
+  color: @Blanco;
+  margin-bottom: 12px;
   font-family: @open;
+  text-align: center;
   &p, &a, &li, &span{
     font-size: 0.8em;
     font-weight: @regular;
     line-height:1.5em;
-  }    
+  }
 }
 h1, h2, h3{
   font-weight: @light;
@@ -27,7 +29,7 @@ h1, h2, h3{
 h4, h5, h6{
   font-weight: @bold;
 }
-h1{font-size: 2.8em;line-height:2.5em;border-bottom:1px solid @Humo}
+h1{font-size: 2.8em;line-height:2.5em;}
 h2{font-size: 2em;line-height:2.2em;}
 h3{font-size: 2em;line-height:2.2em;}
 h4{font-size: 1.5em;line-height:2em;}

@@ -1,28 +1,33 @@
-var Router = Backbone.Router.extend({
-  routes: {
-    '': 'index',
-    'level/:num': 'level'
-  },
+(function ($) {
+  'use strict';
 
-  index: function () {
-    Session.set('pageIs', 'index');
-  },
+  var Router = Backbone.Router.extend({
+    routes: {
+      '': 'index',
+      'level/:num': 'level'
+    },
 
-  level: function (num) {
-    Session.set('pageIs', 'level');
-    Session.set('levelIs', num);
-  }
-});
+    index: function () {
+      Session.set('pageIs', 'index');
+    },
 
-window.App = new Router();
+    level: function (num) {
+      Session.set('pageIs', 'level');
+      Session.set('levelIs', num);
+    }
+  });
 
-Meteor.startup(function () {
-  Backbone.history.start({ pushState: true });
-  $(document).on('click', 'a', function (event) {
-    event.preventDefault();
-    var href = $(this).attr('href');
-    Backbone.history.navigate(href, {
-      trigger: true
+  window.App = new Router();
+
+  Meteor.startup(function () {
+    Backbone.history.start({ pushState: true });
+    $(document).on('click', 'a', function (event) {
+      event.preventDefault();
+      var href = $(this).attr('href');
+      Backbone.history.navigate(href, {
+        trigger: true
+      });
     });
   });
-});
+
+}(jQuery));

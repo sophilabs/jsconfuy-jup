@@ -55,34 +55,36 @@
     }
 
   };
-}(jQuery));
 
-Template.level.helpers({
-  number: function () {
-    return Session.get('levelIs');
-  },
-  startCode: function () {
-    text = '';
-    text += 'function doubleInt(i) {\n';
-    text += '\t// i will be an integer. Double it and return it.\n';
-    text += '\treturn i;\n';
-    text += '}';
-    return text;
-  }
-});
 
-Template.level.rendered = function () {
-  window.level.updateEditor();
-};
-
-Template.level.events = {
-  'click #code_submit': function (event) {
-    event.preventDefault();
-    if ($('#code_submit').hasClass('to_next_level')) {
-      $('#code_submit').val('Go!').removeClass('to_next_level');
-      window.level.next();
-    } else {
-      window.runCode();
+  Template.level.helpers({
+    number: function () {
+      return Session.get('levelIs');
+    },
+    startCode: function () {
+      var text = '';
+      text += 'function doubleInt(i) {\n';
+      text += '\t// I will be an integer. Double it and return it.\n';
+      text += '\treturn i;\n';
+      text += '}';
+      return text;
     }
-  }
-};
+  });
+
+  Template.level.rendered = function () {
+    window.level.updateEditor();
+  };
+
+  Template.level.events = {
+    'click #code_submit': function (event) {
+      event.preventDefault();
+      if ($('#code_submit').hasClass('to_next_level')) {
+        $('#code_submit').val('Go!').removeClass('to_next_level');
+        window.level.next();
+      } else {
+        window.runCode();
+      }
+    }
+  };
+
+}(jQuery));

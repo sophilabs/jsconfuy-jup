@@ -2,6 +2,7 @@
 
 body{
   background: whiteSmoke;
+  margin: 0;
 
   @import 'finish.lessimport';
 }
@@ -12,12 +13,13 @@ h1{
           transition: all 250ms;
 }
 #level_playground{
-  min-height: 400px;
+  min-height: 350px;
   max-width: 100%;
   position: relative;
 }
 #code_submit{
-  background: #CACA7D;
+  background: #B6E654;
+  font-size: 50px;
   border: none;
   box-shadow: 0 10px 50px rgba(220, 220, 140, 0.5);
   color: white;
@@ -33,7 +35,7 @@ h1{
   vertical-align: top;
   width: 150px;
   &.to_next_level{
-    background: rgb(202, 125, 125);
+    background: #6A109E;
     box-shadow: 0 10px 50px rgba(202, 125, 125, 0.5);
   }
 }
@@ -70,7 +72,7 @@ h1{
   top: 0;
 }
 .clock{
-  background: #CACA7D;
+  background: #FF0057;
   box-shadow: 0 10px 50px rgba(220, 220, 140, 0.5);
   padding: 20px;
   position: fixed;
@@ -83,7 +85,7 @@ h1{
   }
 }
 .start_game{
-  background: #CACA7D;
+  background: #6A109E;
   color: white;
   display: block;
   font-size: 2em;
@@ -91,9 +93,9 @@ h1{
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  margin: 10px auto;
+  margin: 200px auto 0;
   padding: 20px;
-  width: auto;
+  width: 30%;
 }
 #dock{
   .notification{
@@ -107,5 +109,24 @@ h1{
       color: white;
       font-size: 0.8em;
     }
-  }  
+  }
+}
+
+canvas{
+  display:block;
+  vertical-align:bottom;
+}
+
+#particles-js{
+  height: 100%;
+  background: #111111;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: -1;
+}
+
+.level_number {
+  font-size: 36px;
+  text-shadow: 0 2px 24px yellow;
 }
