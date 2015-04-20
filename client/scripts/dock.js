@@ -3,9 +3,10 @@
 
   Template.dock.helpers({
     scores: function () {
-      return Scores.find({
+      return [];
+      /*return Scores.find({
         createdAt: {$gt: new Date()}
-      });
+      });*/
     }
   });
 

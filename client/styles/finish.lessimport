@@ -2,47 +2,7 @@
   margin: 0 auto;
   max-width: 60%;
   min-width: 400px;
-  .finish_form{
-    #player_name, #finish_submit{
-      background: white;
-      border: none;
-      box-sizing: border-box;
-      display: inline-block;
-      vertical-align: top;
-    }
-    #player_name{
-      font-size: 1.4em;
-      height: 55px;
-      line-height: 1.4em;
-      margin: 0;
-      padding: 10px;
-      color: black;
-      width: 100%;
-    }
-    #finish_submit{
-      height: 55px;
-      margin: 0;
-      padding: 10px;
 
-      background: #9CD22F;
-
-      -webkit-transition: all 250ms;
-         -moz-transition: all 250ms;
-          -ms-transition: all 250ms;
-           -o-transition: all 250ms;
-              transition: all 250ms;
-      width: 80px;
-      font-size: 16px;
-      font-weight: bold;
-      float: right;
-
-      &.ready, &:hover{
-        background: #9CD22F;
-        color: white;
-        cursor: pointer;
-      }
-    }
-  }
   .finish_share{
     font-size: 0;
     margin: 150px auto 0;

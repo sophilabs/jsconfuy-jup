@@ -10,16 +10,14 @@
 
   Template.root.events = {
     'click .logo': function (event) {
+      $('#player_email').val('');
+      $('#player_name').val('');
+      $('#interested').prop('checked', true);
+
       $.magnificPopup.open({
         items: {
           type: 'inline',
-          src: '<div id="are-you-sure" class="popup-content">' +
-            '<h2 class="general popup-title">Quit game?</h2>' +
-            '<div class="actions">' +
-              '<button class="yes-btn">Yes</button>' +
-              '<button class="no-btn">No</button>' +
-            '</div>' +
-          '</div>'
+          src: '#are-you-sure'
         },
         fixedContentPos: false,
         fixedBgPos: true,
@@ -29,11 +27,11 @@
         midClick: true,
         removalDelay: 300
       });
-      $('.yes-btn').click(function () {
+      $('#are-you-sure .yes-btn').click(function () {
         $.magnificPopup.close();
         window.main.goIndex();
       });
-      $('.no-btn').click(function () {
+      $('#are-you-sure .no-btn').click(function () {
         $.magnificPopup.close();
       });
     }

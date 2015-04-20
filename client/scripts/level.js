@@ -68,6 +68,12 @@
       text += '\treturn i;\n';
       text += '}';
       return text;
+    },
+    image: function () {
+      return Session.get('image');
+    },
+    name: function () {
+      return Session.get('name');
     }
   });
 

@@ -18,10 +18,38 @@
 
   Template.main.events = {
     'click .start_game': function (event) {
-      Session.set('pageIs', 'level');
-      Session.set('levelIs', 1);
-      $('h1').css('line-height', '32px');
-      clock.start();
+      $.magnificPopup.open({
+        items: {
+          type: 'inline',
+          src: '#signup'
+        },
+        fixedContentPos: false,
+        fixedBgPos: true,
+        overflowY: 'auto',
+        closeBtnInside: false,
+        preloader: false,
+        midClick: true,
+        removalDelay: 300
+      });
+      $('#signup-form').validate({
+        submitHandler: function () {
+          var email = $.trim($('#player_email').val());
+          Session.set('email', email);
+          Session.set('name', $.trim($('#player_name').val()));
+          Session.set('interested', $('#interested').is(':checked'));
+          var hash = CryptoJS.MD5(email);
+          Session.set('image', 'http://www.gravatar.com/avatar/' + hash);
+
+          $.magnificPopup.close();
+          window.main.startGame();
+        }
+      });
+      $('#signup .yes-btn').click(function () {
+        $('#signup-form').submit();
+      });
+      $('#signup .no-btn').click(function () {
+        $.magnificPopup.close();
+      });
     }
   };
 
@@ -29,7 +57,21 @@
     goIndex: function () {
       Session.set('pageIs', 'index');
       Session.set('levelIs', undefined);
+      $('h1').css('height', 'auto');
       Backbone.history.navigate('/', {trigger: true});
+    },
+    startGame: function () {
+      Meteor.call('signup', Session.get('email'), Session.get('name'), Session.get('interested'), function (err, res) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(res);
+        }
+      });
+      Session.set('pageIs', 'level');
+      Session.set('levelIs', 1);
+      $('h1').css('height', '0');
+      clock.start();
     }
   };
 

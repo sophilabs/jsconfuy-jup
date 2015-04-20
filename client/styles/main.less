@@ -13,7 +13,7 @@ h1{
           transition: all 250ms;
 }
 #level_playground{
-  min-height: 350px;
+  min-height: 400px;
   max-width: 100%;
   position: relative;
 }
@@ -129,7 +129,7 @@ canvas{
 
 .level_number {
   font-size: 36px;
-  text-shadow: 0 2px 24px yellow;
+  margin-bottom: 16px;
 }
 
 input[type=checkbox] {
@@ -142,9 +142,9 @@ input[type=checkbox] {
 }
 
 .check_form {
-  margin: 20px 0;
+  margin: 10px 0 30px;
 
-  span {
+  label {
     font-size: 20px;
     padding-left: 10px;
   }
@@ -230,9 +230,51 @@ input[type=checkbox] {
   position: relative;
 }
 
+#signup {
+  background: white;
+  padding: 20px 30px;
+  text-align: left;
+  max-width: 400px;
+  margin: 40px auto;
+  position: relative;
+
+  .actions {
+    text-align: right;
+  }
+
+  .popup-title {
+    margin: 0;
+  }
+
+  form {
+    .textbox {
+      background: white;
+      border: none;
+      box-sizing: border-box;
+      display: inline-block;
+      vertical-align: top;
+      font-size: 1.4em;
+      height: 55px;
+      line-height: 1.4em;
+      margin: 0;
+      padding: 10px;
+      color: black;
+      width: 100%;
+      text-align: left;
+    }
+    #player_email {
+      margin-top: 10px;
+    }
+    label {
+      color: black;
+    }
+  }
+}
+
 .popup-content {
   .popup-title {
     color: black;
+    margin: 0 0 18px 0;
   }
   .actions {
     text-align: center;
@@ -242,12 +284,38 @@ input[type=checkbox] {
       padding: 5px 10px;
       font-size: 24px;
       font-family: @open;
-      margin: 0 10px;
+      margin: 0 6px;
       cursor: pointer;
+      -webkit-transition: all 250ms;
+         -moz-transition: all 250ms;
+          -ms-transition: all 250ms;
+           -o-transition: all 250ms;
+              transition: all 250ms;
     }
     button:hover {
-      background: #666;
+      background: #6A109E;
       color: white;
     }
   }
+}
+
+label.error {
+  display: none !important;
+}
+
+input[aria-invalid='true'] {
+  border: 1px solid red !important;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  overflow: hidden;
+  -webkit-transition: all 250ms;
+     -moz-transition: all 250ms;
+      -ms-transition: all 250ms;
+       -o-transition: all 250ms;
+          transition: all 250ms;
 }

@@ -8,7 +8,7 @@
       window.editor.setReadOnly(true);
       $('#code_submit').attr('disabled', true);
 
-      Meteor.call('runTests', code, Session.get('levelIs'), function (err, res) {
+      Meteor.call('runTests', Session.get('email'), code, Session.get('levelIs'), Session.get('time') || '99:99', function (err, res) {
         if (err) {
           console.log(err);
         } else {

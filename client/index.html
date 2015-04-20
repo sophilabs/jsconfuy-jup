@@ -1,18 +1,19 @@
 <head>
-  <title>MVD-JS Meteor App</title>
+  <title>Javascript Under Pressure</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,700,300' rel='stylesheet' type='text/css'>
   <script src='http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js' type='text/javascript'></script>
-  <script src="lib/particles.js"></script>
+  <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+  <script src='lib/particles.js'></script>
 </head>
-<body id="root">
-  <div id="particles-js"></div>
+<body id='root'>
+  <div id='particles-js'></div>
   {{> root}}
 </body>
 
 <template name='root'>
-  <h1 class='general'>Javascript under pressure</h1>
+  <h1 class='general'>Javascript Under Pressure</h1>
   {{#if showClock}}
-    <button data-mfp-src="are-you-sure" class="logo general">JUP</button>
+    <button data-mfp-src='are-you-sure' class='logo general'>JUP</button>
     <div class='clock general'>
       {{> clock }}
     </div>
@@ -22,6 +23,28 @@
   </div>
   <div id='dock'>
     {{> dock}}
+  </div>
+  <div id='signup' class='popup-content mfp-hide'>
+    <h2 class='general popup-title'>About me</h2>
+    <form id='signup-form'>
+      <input placeholder='Your name' type='text' name='player_name' class='general textbox' id='player_name' required>
+      <input placeholder='Your email' type='email' name='player_email' class='general textbox' id='player_email' required>
+      <div class='check_form'>
+        <input type='checkbox' id='interested' name='interested' checked='true' /> <label for='interested' class='general'>I would like to work at Sophilabs</label>
+      </div>
+      <input type='submit' class='hidden' />
+    </form>
+    <div class='actions'>
+      <button class='yes-btn'>OK</button>
+      <button class='no-btn'>Cancel</button>
+    </div>
+  </div>
+  <div id='are-you-sure' class='popup-content mfp-hide'>
+    <h2 class='general popup-title'>Quit game?</h2>
+    <div class='actions'>
+      <button class='yes-btn'>Yes</button>
+      <button class='no-btn'>No</button>
+    </div>
   </div>
 </template>
 

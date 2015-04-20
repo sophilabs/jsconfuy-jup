@@ -5,7 +5,7 @@ Scores.allow({
     return check(doc.name, String) && check(doc.time, String);
   },
   update: function () {
-    return false;
+    return true;
   },
   remove: function () {
     return false;
@@ -56,12 +56,15 @@ Meteor.methods({
     return text;
   },
 
-  runTests: function (code, level) {
+  runTests: function (email, code, level, time) {
     var status = true,
         response = [];
 
+    check(email, String);
     check(code, String);
     check(level, Number);
+    check(time, String);
+
     if (level > 5)
       throw new Meteor.Error(505, 'Level not found');
 
@@ -74,21 +77,36 @@ Meteor.methods({
         break;
       }
     }
+    if (status) {
+      Scores.update(
+        { email: email },
+        {
+          $push: { completions: { level: level, code: code, time: time }},
+          $set: {
+            completed: level === 5,
+            time: time
+          }
+        }
+      );
+    }
     return {
       status: status,
       output: response
     };
   },
 
-  postScore: function (name, receive, time) {
+  signup: function (email, name, interested) {
+    check(email, String);
     check(name, String);
-    check(receive, Boolean);
-    check(time, String);
+    check(interested, Boolean);
 
     Scores.insert({
+      email: email,
       name: name,
-      receive: receive,
-      time: time,
+      interested: interested,
+      completions: [],
+      completed: false,
+      time: '00:00',
       createdAt: new Date()
     });
   }
