@@ -44,7 +44,7 @@
 
     'click #finish_submit': function (event) {
       event.preventDefault();
-      Meteor.call('postScore', $.trim($('#player_name').val()), Session.get('time') || '99:99', function (err) {
+      Meteor.call('postScore', $.trim($('#player_name').val()), $('#receive_offers').is(':checked'), Session.get('time') || '99:99', function (err) {
         if (err) {
           alert(err);
         } else {

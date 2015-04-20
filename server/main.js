@@ -52,7 +52,7 @@ Meteor.methods({
         text += '\t// i will be Batman.\n\t';
         text += '\n}';
       break;
-    };
+    }
     return text;
   },
 
@@ -80,12 +80,14 @@ Meteor.methods({
     };
   },
 
-  postScore: function (name, time) {
+  postScore: function (name, receive, time) {
     check(name, String);
+    check(receive, Boolean);
     check(time, String);
 
     Scores.insert({
       name: name,
+      receive: receive,
       time: time,
       createdAt: new Date()
     });

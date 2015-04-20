@@ -16,30 +16,39 @@
       line-height: 1.4em;
       margin: 0;
       padding: 10px;
-      width: -webkit-calc(~'100% - 80px');
-      width:    -moz-calc(~'100% - 80px');
-      width:      -o-calc(~'100% - 80px');
-      width:         calc(~'100% - 80px');
+      color: black;
+      width: 100%;
     }
     #finish_submit{
       height: 55px;
       margin: 0;
       padding: 10px;
+
+      background: #9CD22F;
+
       -webkit-transition: all 250ms;
          -moz-transition: all 250ms;
           -ms-transition: all 250ms;
            -o-transition: all 250ms;
               transition: all 250ms;
       width: 80px;
+      font-size: 16px;
+      font-weight: bold;
+      float: right;
+
       &.ready, &:hover{
-        background: #504740;
+        background: #9CD22F;
         color: white;
         cursor: pointer;
       }
-    }  
+    }
   }
   .finish_share{
     font-size: 0;
-    margin: 16px auto;
+    margin: 150px auto 0;
+    text-align: center;
+  }
+  .success-msg {
+    font-size: 22px;
   }
 }

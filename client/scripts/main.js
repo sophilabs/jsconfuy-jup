@@ -12,15 +12,7 @@
     },
     showClock: function () {
       var page = Session.get('pageIs');
-      console.log('aaaa ' + page);
       return page;
-    }
-  });
-
-  Template.root.helpers({
-    showClock: function () {
-      var page = Session.get('pageIs');
-      return page != 'index';
     }
   });
 
@@ -33,11 +25,17 @@
     }
   };
 
-  $(document).on('ready', function () {
-    if (Session.equals('pageIs', 'level')) {
+  window.main = {
+    goIndex: function () {
       Session.set('pageIs', 'index');
       Session.set('levelIs', undefined);
       Backbone.history.navigate('/', {trigger: true});
+    }
+  };
+
+  $(document).on('ready', function () {
+    if (Session.equals('pageIs', 'level')) {
+      window.main.goIndex();
     }
     particlesJS('particles-js', {
       particles: {
