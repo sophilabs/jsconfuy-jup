@@ -3,10 +3,11 @@
 
   Template.dock.helpers({
     scores: function () {
-      return [];
-      /*return Scores.find({
-        createdAt: {$gt: new Date()}
-      });*/
+      return Scores.find({}, {sort: {time: 1}, limit: 10});
+    },
+    playing: function () {
+      var startDate = new Date(new Date() - 10 * 60000);
+      return Scores.find({ updatedAt: { $gt: startDate }}, {sort: {time: 1}, limit: 10});
     }
   });
 

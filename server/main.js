@@ -84,7 +84,8 @@ Meteor.methods({
           $push: { completions: { level: level, code: code, time: time }},
           $set: {
             completed: level === 5,
-            time: time
+            time: time,
+            updatedAt: new Date()
           }
         }
       );
@@ -107,7 +108,8 @@ Meteor.methods({
       completions: [],
       completed: false,
       time: '00:00',
-      createdAt: new Date()
+      createdAt: new Date(),
+      updatedAt: new Date()
     });
   }
 

@@ -38,7 +38,7 @@
           Session.set('name', $.trim($('#player_name').val()));
           Session.set('interested', $('#interested').is(':checked'));
           var hash = CryptoJS.MD5(email);
-          Session.set('image', 'http://www.gravatar.com/avatar/' + hash);
+          Session.set('image', 'http://www.gravatar.com/avatar/' + hash + '?s=58&d=monsterid');
 
           $.magnificPopup.close();
           window.main.startGame();
