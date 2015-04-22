@@ -1,0 +1,14 @@
+<template name='players'>
+  <div class='players'>
+    <h2 class='general'>Now playing</h2>
+    <div class='rows'>
+      {{#each playing}}
+        <div class='notification'>
+            <img src="{{ image }}"/>
+            <div class='name'>{{name}}</div>
+            <div class='level'>{{level}}</div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

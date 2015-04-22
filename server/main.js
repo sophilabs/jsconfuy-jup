@@ -1,3 +1,5 @@
+var Sandbox = Meteor.npmRequire("sandbox");
+
 Scores = new Meteor.Collection('scores');
 
 Scores.allow({
@@ -15,6 +17,15 @@ Scores.allow({
 Meteor.publish('scores', function () {
   return Scores.find();
 });
+
+function runCode(code, done) {
+  var s = new Sandbox();
+  s.run(code, function (output) {
+    done(null, output);
+  });
+}
+//wrapping
+var runCodeSync = Async.wrap(runCode);
 
 Meteor.methods({
 
@@ -65,13 +76,21 @@ Meteor.methods({
     check(level, Number);
     check(time, String);
 
-    if (level > 5)
+    if (level > 5) {
       throw new Meteor.Error(505, 'Level not found');
+    }
 
     for (var index = 0; index < tests[level].length; index++) {
-      if (eval(code + '\n' + tests[level][index].i) === tests[level][index].o) {
-        response.push([tests[level][index].i + ' passed!', 'ok']);
-      } else {
+      var output = runCodeSync(code + '\n' + tests[level][index].i);
+      try {
+        if (output.result === '' + tests[level][index].o) {
+          response.push([tests[level][index].i + ' passed!', 'ok']);
+        } else {
+          response.push([tests[level][index].i + ' failed!', 'err']);
+          status = false;
+          break;
+        }
+      } catch (ex) {
         response.push([tests[level][index].i + ' failed!', 'err']);
         status = false;
         break;
@@ -85,6 +104,7 @@ Meteor.methods({
           $set: {
             completed: level === 5,
             time: time,
+            level: level + 1,
             updatedAt: new Date()
           }
         }
@@ -96,18 +116,23 @@ Meteor.methods({
     };
   },
 
-  signup: function (email, name, interested) {
+  signup: function (email, name, image, interested) {
     check(email, String);
     check(name, String);
+    check(image, String);
     check(interested, Boolean);
+
+    Scores.remove({ email: email });
 
     Scores.insert({
       email: email,
       name: name,
+      image: image,
       interested: interested,
       completions: [],
       completed: false,
       time: '00:00',
+      level: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     });

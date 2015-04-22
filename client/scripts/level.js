@@ -7,7 +7,7 @@
     resume: function () {
       window.clock.start();
       window.editor.setReadOnly(false);
-      //window.editor.focus();
+      window.editor.focus();
       $('#code_submit').attr('disabled', false);
     },
 
@@ -30,19 +30,20 @@
         editor.setFontSize('16px');
         editor.getSession().setUseWorker(false);
         editor.resize();
-        //editor.focus();
+        editor.focus();
         editor.moveCursorTo(2, 8);
         editor.commands.addCommand({
           name: 'runTest',
-          bindKey: {win: 'Ctrl+Enter', mac: 'Command-Enter'},
+          bindKey: { win: 'Ctrl-Enter', mac: 'Command-Enter' },
           exec: function (editor) {
             $('#code_submit').click();
-          }
+          },
+          readonly: true
         });
       } else {
         Meteor.call('startCode', Session.get('levelIs'), function (err, res) {
           editor.getSession().setValue(res);
-          //editor.focus();
+          editor.focus();
           switch (Session.get('levelIs')) {
             case 1: editor.moveCursorTo(2, 8); break;
             case 2: editor.moveCursorTo(2, 1); break;

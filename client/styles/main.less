@@ -16,23 +16,46 @@ h1{
   min-height: 400px;
   max-width: 100%;
   position: relative;
+
+  .players {
+    position: absolute;
+    right: 20px;
+    width: 300px;
+    top: 0;
+    bottom: 0;
+    height: auto;
+
+    h2 {
+      margin: 0;
+    }
+
+    .rows {
+      overflow: auto;
+      height: -webkit-calc(~'100% - 70px');
+      height:    -moz-calc(~'100% - 70px');
+      height:      -o-calc(~'100% - 70px');
+      height:         calc(~'100% - 70px');
+      padding-right: 20px;
+    }
+  }
 }
 #code_submit{
   background: #9CD22F;
   font-size: 50px;
   border: none;
-  box-shadow: 0 10px 50px rgba(220, 220, 140, 0.5);
+  box-shadow: 0 0 40px rgba(220, 220, 140, 0.44);
   color: white;
   display: inline-block;
   font-weight: 700;
   height: 150px;
   margin-top: 10px;
+  margin-left: 20px;
   cursor: pointer;
-  -webkit-transition: all 2s;
-     -moz-transition: all 2s;
-      -ms-transition: all 2s;
-       -o-transition: all 2s;
-          transition: all 2s;
+  -webkit-transition: all 1s;
+     -moz-transition: all 1s;
+      -ms-transition: all 1s;
+       -o-transition: all 1s;
+          transition: all 1s;
   vertical-align: top;
   width: 150px;
   &.to_next_level{
@@ -41,16 +64,16 @@ h1{
   }
 }
 #console{
-  background: #504740;
+  background: black;
   display: inline-block;
   height: 150px;
   margin: 10px 0 0 10px;
   overflow-y: scroll;
   vertical-align: top;
-  width: -webkit-calc(~'100% - 160px');
-  width:    -moz-calc(~'100% - 160px');
-  width:      -o-calc(~'100% - 160px');
-  width:         calc(~'100% - 160px');
+  width: -webkit-calc(~'100% - 200px');
+  width:    -moz-calc(~'100% - 200px');
+  width:      -o-calc(~'100% - 200px');
+  width:         calc(~'100% - 200px');
   tt{
     color: white;
     display: block;
@@ -58,23 +81,23 @@ h1{
     font-weight: bold;
     padding: 4px 2px;
     &.ok{
-      border-bottom: 1px solid green;
+      color: green;
     }
     &.err{
-      border-bottom: 1px solid red;
+      color: red;
     }
   }
 }
 #editor{
   bottom: 0;
-  left: 0;
+  left: 20px;
   position: absolute;
-  right: 0;
+  right: 400px;
   top: 0;
 }
 .clock{
   background: #FF0057;
-  box-shadow: 0 10px 50px rgba(220, 220, 140, 0.5);
+  box-shadow: 0 0 40px rgba(255, 0, 87, 0.53);
   padding: 20px;
   position: fixed;
   right: 5%;
@@ -94,23 +117,9 @@ h1{
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  margin: 200px auto 0;
+  margin: 0 auto;
   padding: 20px;
   width: 30%;
-}
-#dock{
-  .notification{
-    /*background: #504740;
-    bottom: 10px;
-    left: 10px;
-    padding: 10px;
-    position: fixed;
-    width: 280px;
-    span{
-      color: white;
-      font-size: 0.8em;
-    }*/
-  }
 }
 
 canvas{
@@ -345,4 +354,83 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+}
+
+.leaderboard {
+  float: left;
+  height: 350px;
+  width: -webkit-calc(~'30% - 100px');
+  width:    -moz-calc(~'30% - 100px');
+  width:      -o-calc(~'30% - 100px');
+  width:         calc(~'30% - 100px');
+  margin-left: 12%;
+  overflow: auto;
+  padding: 0 20px 20px 40px;
+  background-color: rgba(0, 0, 0, 0.62);
+}
+
+.players {
+  float: left;
+  height: 350px;
+  overflow: auto;
+  width: -webkit-calc(~'30% - 100px');
+  width:    -moz-calc(~'30% - 100px');
+  width:      -o-calc(~'30% - 100px');
+  width:         calc(~'30% - 100px');
+  margin-left: 16%;
+  padding: 0 20px 20px 40px;
+  background-color: rgba(0, 0, 0, 0.62);
+}
+
+.notification {
+  color: white;
+  font-family: @open;
+  line-height: 24px;
+
+  .name {
+    width: -webkit-calc(~'75% - 34px');
+    width:    -moz-calc(~'75% - 34px');
+    width:      -o-calc(~'75% - 34px');
+    width:         calc(~'75% - 34px');
+    display: inline-block;
+    color: rgb(216, 216, 122);
+    vertical-align: top;
+  }
+
+  .level, .time {
+    text-align: right;
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+#dock {
+  height: 350px;
+  margin-bottom: 60px;
+
+  h2 {
+    margin: 0;
+    color: rgb(242, 0, 174);
+  }
+  .rows {
+    height: 280px;
+    overflow: auto;
+    padding-right: 20px;
+  }
+}
+
+.finish-img {
+  display: block;
+  margin: 10px auto;
+}
+
+.link {
+  text-align: center;
+  display: block;
+  margin-top: 50px;
+  font-size: 32px;
+  color: rgb(249, 249, 49);
+  text-decoration: none;
+  cursor: pointer;
 }

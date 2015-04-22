@@ -8,3 +8,8 @@ preserve-inputs
 jquery
 backbone
 less
+meteorhacks:npm
+
+
+npm-container
+meteorhacks:async

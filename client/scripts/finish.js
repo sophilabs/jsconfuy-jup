@@ -23,6 +23,9 @@
 
 
   Template.finish.events = {
+    'click #go-leaderboard': function (event) {
+      window.main.goIndex();
+    }
   };
 
 }(jQuery));

@@ -4,16 +4,12 @@
   Template.root.helpers({
     showClock: function () {
       var page = Session.get('pageIs');
-      return page != 'index';
+      return page != 'index' && page != 'finish';
     }
   });
 
   Template.root.events = {
     'click .logo': function (event) {
-      $('#player_email').val('');
-      $('#player_name').val('');
-      $('#interested').prop('checked', true);
-
       $.magnificPopup.open({
         items: {
           type: 'inline',

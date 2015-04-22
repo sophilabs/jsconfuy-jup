@@ -1,4 +1,4 @@
-/*tests = {
+tests = {
   // LEVEL 1
   1: [
     {i: 'doubleInt(2);', o: 4},
@@ -35,8 +35,8 @@
     {i: 'isTwo(4);', o: false},
     {i: 'isTwo(1);', o: false}
   ],
-};*/
-
+};
+/*
 tests = {
   // LEVEL 1
   1: [
@@ -59,3 +59,4 @@ tests = {
     {i: 'isTwo(2);', o: true}
   ],
 };
+*/

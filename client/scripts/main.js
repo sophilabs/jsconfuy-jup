@@ -9,15 +9,15 @@
   Template.main.helpers({
     pageIs: function () {
       return Session.get('pageIs');
-    },
-    showClock: function () {
-      var page = Session.get('pageIs');
-      return page;
     }
   });
 
   Template.main.events = {
     'click .start_game': function (event) {
+      $('#player_email').val('');
+      $('#player_name').val('');
+      $('#interested').prop('checked', true);
+
       $.magnificPopup.open({
         items: {
           type: 'inline',
@@ -31,6 +31,9 @@
         midClick: true,
         removalDelay: 300
       });
+      setTimeout(function () {
+        $("#player_name").focus();
+      }, 100);
       $('#signup-form').validate({
         submitHandler: function () {
           var email = $.trim($('#player_email').val());
@@ -39,6 +42,7 @@
           Session.set('interested', $('#interested').is(':checked'));
           var hash = CryptoJS.MD5(email);
           Session.set('image', 'http://www.gravatar.com/avatar/' + hash + '?s=58&d=monsterid');
+          Session.set('small-image', 'http://www.gravatar.com/avatar/' + hash + '?s=24&d=monsterid');
 
           $.magnificPopup.close();
           window.main.startGame();
@@ -61,7 +65,7 @@
       Backbone.history.navigate('/', {trigger: true});
     },
     startGame: function () {
-      Meteor.call('signup', Session.get('email'), Session.get('name'), Session.get('interested'), function (err, res) {
+      Meteor.call('signup', Session.get('email'), Session.get('name'), Session.get('small-image'), Session.get('interested'), function (err, res) {
         if (err) {
           console.log(err);
         } else {

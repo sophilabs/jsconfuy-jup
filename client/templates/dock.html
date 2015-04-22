@@ -1,7 +1,15 @@
 <template name='dock'>
-  {{#each scores}}
-    <div class='notification'>
-      <span class='general'>{{name}} finished the test in {{time}}</span>
+  <div class='leaderboard'>
+    <h2 class='general'>Leaderboard</h2>
+    <div class='rows'>
+      {{#each scores}}
+        <div class='notification'>
+          <img src="{{ image }}"/>
+          <div class='name'>{{name}}</div>
+          <div class='time'>{{time}}</div>
+        </div>
+      {{/each}}
     </div>
-  {{/each}}
+  </div>
+  {{> players}}
 </template>
