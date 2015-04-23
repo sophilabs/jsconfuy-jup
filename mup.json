@@ -24,7 +24,7 @@
   "appName": "jsconfuy-jup",
 
   // Location of app (local directory)
-  "app": "/home/sebas/sophilabs/node/mvd-js-meteor",
+  "app": "/home/sebas/sophilabs/node/jsconfuy-jup",
 
   // Configure environment
   "env": {

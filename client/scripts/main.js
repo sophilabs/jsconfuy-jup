@@ -120,7 +120,7 @@
         }
       },
       interactivity: {
-        enable: true,
+        enable: false,
         mouse: {
           distance: 250
         },
@@ -130,11 +130,6 @@
           opacity: 0.5
         },
         events: {
-          onclick: {
-            enable: true,
-            mode: 'push', // "push" or "remove"
-            nb: 4
-          },
           onresize: {
             enable: true,
             mode: 'out', // "out" or "bounce"
