@@ -65,7 +65,7 @@
     startCode: function () {
       var text = '';
       text += 'function doubleInt(i) {\n';
-      text += '\t// I will be an integer. Double it and return it.\n';
+      text += '\t// i will be an integer. Double it and return it.\n';
       text += '\treturn i;\n';
       text += '}';
       return text;

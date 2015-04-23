@@ -3,11 +3,11 @@ var Sandbox = Meteor.npmRequire("sandbox");
 Scores = new Meteor.Collection('scores');
 
 Scores.allow({
-  insert: function (userId, doc) {
-    return check(doc.name, String) && check(doc.time, String);
+  insert: function () {
+    return false;
   },
   update: function () {
-    return true;
+    return false;
   },
   remove: function () {
     return false;

@@ -74,6 +74,8 @@
       });
       Session.set('pageIs', 'level');
       Session.set('levelIs', 1);
+      level.current = 1;
+      clock.secs = 0;
       $('h1').css('height', '0');
       clock.start();
     }
