@@ -31,7 +31,7 @@ tests = {
   ],
   // LEVEL 5
   5: [
-    {i: 'isPrime(1);', o: true},
+    {i: 'isPrime(1);', o: false},
     {i: 'isPrime(2);', o: true},
     {i: 'isPrime(12);', o: false},
     {i: 'isPrime(13);', o: true},
