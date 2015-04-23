@@ -59,8 +59,8 @@ Meteor.methods({
         text += '\n}';
       break;
       case 5:
-        text += 'function isTwo (i) {\n';
-        text += '\t// i will be Batman.\n\t';
+        text += 'function isPrime (i) {\n';
+        text += '\t// i will be an integer. Return true if it\'s even, and false if it isn\'t.\n\t';
         text += '\n}';
       break;
     }
