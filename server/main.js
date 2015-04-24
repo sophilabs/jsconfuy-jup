@@ -60,7 +60,7 @@ Meteor.methods({
       break;
       case 5:
         text += 'function isPrime (i) {\n';
-        text += '\t// i will be an integer. Return true if it\'s even, and false if it isn\'t.\n\t';
+        text += '\t// i will be an integer. Return true if it\'s a prime number, and false if it isn\'t.\n\t';
         text += '\n}';
       break;
     }
