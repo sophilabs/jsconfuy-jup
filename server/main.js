@@ -103,7 +103,7 @@ Meteor.methods({
           $push: { completions: { level: level, code: code, time: time }},
           $set: {
             completed: level === 5,
-            time: time,
+            time: time.length === 4 ? '0' + time : time,
             level: level + 1,
             updatedAt: new Date()
           }
