@@ -1,13 +1,13 @@
-mvd-js-meteor
-=============
+# mvd-js-meteor
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 Meteor sample application based on "You can't javascript under pressure"
 
 ![mvdjs.meteor.com](https://dl.dropboxusercontent.com/u/73676286/GitHub/mvd-js-meteor-readme-example.gif)
 
 
-License
--------
+## License
 
 The MIT License (MIT)
 
